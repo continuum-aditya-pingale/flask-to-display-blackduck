@@ -1,0 +1,71 @@
+<body bgcolor="white" style="color: blue;">
+
+{{name}}
+{% for document in result%}
+{% if document['name']==project_name %}
+<center> <h3> {{document['name']}} </h3> </center>
+<center>
+<table border="1 px">
+	<tr>
+		<th> <p><font color="red">Version </font></p> </th>
+		<th> Security Risk </th>
+		<th> License Risk </th>
+		<th> Operational Risk </th>
+	</tr>
+	<tr>
+		<td> {{document['version']}} </td>
+		<td> 
+			<table>
+				<tr>
+				<td>High</td>
+				<td>{{document['SR'][0]['H']}}</td>
+				</tr>
+				<tr>
+				<td>Medium</td>
+				<td>{{document['SR'][1]['M']}}</td>
+				</tr>
+				<tr>
+                                <td>Low</td>
+                                <td>{{document['SR'][2]['L']}}</td>
+                                </tr>		
+			</table>
+		</td>
+		<td>
+                        <table>
+                                <tr>
+                                <td>High</td>
+                                <td>{{document['LR'][0]['H']}}</td>
+                                </tr>
+                                <tr>
+                                <td>Medium</td>
+                                <td>{{document['LR'][1]['M']}}</td>
+                                </tr>
+                                <tr>
+                                <td>Low</td>
+                                <td>{{document['LR'][2]['L']}}</td>
+                                </tr>
+                        </table>
+                </td>
+		<td>
+                        <table>
+                                <tr>
+                                <td>High</td>
+                                <td>{{document['OR'][0]['H']}}</td>
+                                </tr>
+                                <tr>
+                                <td>Medium</td>
+                                <td>{{document['OR'][1]['M']}}</td>
+                                </tr>
+                                <tr>
+                                <td>Low</td>
+                                <td>{{document['OR'][2]['L']}}</td>
+                                </tr>
+                        </table>
+                </td>
+
+	</tr>
+</table>
+</center>
+{%endif%}
+{% endfor %}
+</body>
